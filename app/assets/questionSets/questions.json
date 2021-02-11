@@ -1,47 +1,43 @@
 {
-  "name": "sample",
-  "description": "fuck you",
+  "name": "sample question set",
+  "description": "shows proper format for question sets",
   "author": "bear :3",
   "questions": [
     {
-      "question": "what does fox say?",
+      "question": "How many fingers am I holding up, Winston?",
       "type": "multiple-choice",
       "options": [
-        "FUCK YOU FUCK YOU FUCK YOU FUCK YOU FUC",
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-        "option 3",
-        "waaaaaaaaaaaaaaaaah *licks u*"
+        "five",
+        "four",
+        "i am an enemy of the state"
       ],
-      "correct": 2
+      "correct": 1
     },
     {
-      "question": "does fox say what?",
+      "question": "is it true? tell me... i beg you sir.",
       "type": "true-false",
       "correct": false
     },
     {
-      "question": "say what fox does?",
+      "question": "tell me a joke",
       "type": "short-answer",
       "correct": [
-        "FUCK YOU FUCK YOU FUCK YOU FUCK YOU FUC",
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-        "option 3",
-        "waaaaaaaaaaaaaaaaah *licks u*"
+        "i would, but i'm not funny",
+        "'knock knock.' 'who's there?' *leaves*"
       ]
     },
     {
-      "question": "fox says what now?",
+      "question": "which of the following are true?",
       "type": "multiple-answer",
       "options": [
-        "FUCK YOU FUCK YOU FUCK YOU FUCK YOU FUC",
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-        "option 3",
-        "waaaaaaaaaaaaaaaaah *licks u*"
+        "my shampoo tastes kinda bad.",
+        "perception is subjective, truth is opinion",
+        "2 + 2 = 5",
+        "Minecraft is a sandbox video game developed by Mojang. The game was created by Markus \"Notch\" Persson in the Java programming language."
       ],
       "correct": [
         1,
-        3,
-        4
+        3
       ]
     }
   ]

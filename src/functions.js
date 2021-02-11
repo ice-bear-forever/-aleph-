@@ -83,7 +83,9 @@ export function loadQuestionSets () {
               let newEl = `<a href="#" ${elId} ${elClass}>${elBody}</a>`;
               // add dropdown element to dropdown
               e.questionSetDropdown.innerHTML += newEl;
-              document.getElementById(`question-set-option-${i}`).onclick = function () {selectQuestionSet(i)};
+              document.getElementById(`question-set-option-${i}`).onclick = function () {
+                selectQuestionSet(i);
+              };
             }));
       }
       // if no question lists are present
@@ -92,14 +94,12 @@ export function loadQuestionSets () {
           '<a href="#" class="button first last"><em>no question sets!</em></a>';
     }
   }, function () {
-    console.error('error');
   });
 }
 
 // set active question set, set its label in the button
 export function selectQuestionSet (index) {
   if (questionSets.length === 0) {
-    console.error('no question sets!');
     return;
   }
   activeQuestionSet = questionSets[index];
@@ -145,7 +145,6 @@ export function loadBackup () {
     displayQuestion(currentQuestionNum);
     quiz.timer.start();
   }, function () {
-    console.error('error loading profile!');
   });
 }
 
@@ -245,7 +244,6 @@ export function showStart () {
             `Load backup from <strong>${month}/${day}/${year} ${hour}:${minute}:${second}</strong>`;
       }
     }, function () {
-      console.error('error loading backup!');
     });
   });
   if (quiz !== undefined && quiz.inProgress === true) {
@@ -313,14 +311,12 @@ export function showResults (index) {
 export function loadProfile () {
   checkForFile('./storage', 'profile.json', function () {
     Neutralino.storage.getData('profile', function (content) {
-      console.log(content);
       for (let item in content) {
         profile[item] = content[item];
       }
       updateProfilePage();
       applyColors();
     }, function () {
-      console.error('error loading profile!');
     });
   });
 }
@@ -335,16 +331,31 @@ export function updateProfilePage () {
 // sets onclick functions for ui elements
 export function setClickEvents () {
   // button click handling
-  e.title.onclick = function () {showStart()};
-  e.profileButton.onclick = function () {showProfile()};
-  e.helpButton.onclick = function () {showHelp()};
-  e.questionSetDropdownButton.onclick = function () {toggleDropdown('question-set-dropdown'
-)
-};
-  e.loadBackupButton.onclick = function () {loadBackup()};
-  e.stopButton.onclick = function () {cancelQuiz()};
-  e.continueButton.onclick = function () {gameContinue()};
-  e.printButton.onclick = function () {window.print()};
+  e.title.onclick = function () {
+    showStart();
+  };
+  e.profileButton.onclick = function () {
+    showProfile();
+  };
+  e.helpButton.onclick = function () {
+    showHelp();
+  };
+  e.questionSetDropdownButton.onclick = function () {
+    toggleDropdown('question-set-dropdown'
+    );
+  };
+  e.loadBackupButton.onclick = function () {
+    loadBackup();
+  };
+  e.stopButton.onclick = function () {
+    cancelQuiz();
+  };
+  e.continueButton.onclick = function () {
+    gameContinue();
+  };
+  e.printButton.onclick = function () {
+    window.print();
+  };
 
 // window click handling
   window.onclick = function (event) {
@@ -404,9 +415,7 @@ function checkForAns () {
 
 // makes a new quiz of specified length
 function makeNewQuiz (num) {
-  console.log('making a new quiz!');
   quiz = new Quiz(num);
-  console.log(quiz);
 }
 
 // format nav buttons based on current question number
@@ -421,7 +430,9 @@ function formatNavButtons (num) {
   }
   // change next button to finish if last question
   if (num === quiz.q.length - 1) {
-    e.next.onclick = function () {finishQuiz()};
+    e.next.onclick = function () {
+      finishQuiz();
+    };
     e.next.innerHTML = 'finish';
   } else {
     e.next.onclick = goForth;
@@ -445,7 +456,6 @@ function markAnswer () {
       value = [];
       for (let i = 1; i <= Object.keys(e.maq).length; i++) {
         if (e.maq[i].checked) value.push(i);
-        console.log(e.maq[i]);
       }
     } else value = undefined;
     quiz.q[currentQuestionNum].answer = value;
@@ -464,18 +474,14 @@ function saveQuizData (filename) {
   data.content = stripTimers(data.content);
   // save data
   Neutralino.storage.putData(data, function () {
-    console.log(`Data saved as storage/${filename}.json`);
   }, function () {
-    console.error('An error occured while saving the data!');
   });
 }
 
 // removes current quiz backup
 function deleteBackup () {
   Neutralino.filesystem.removeFile('./storage/quizbackup.json', function (data) {
-    console.log(data);
   }, function () {
-    console.error('error');
   });
 }
 
@@ -799,7 +805,9 @@ function makeQuizDisplays () {
                          <p class="info monospace">${name}</p>
                      </div>`;
       e.profile.quizList.innerHTML += element;
-      document.getElementById(`profile-quiz-item-${i}`).onclick = function () {showResults(i)};
+      document.getElementById(`profile-quiz-item-${i}`).onclick = function () {
+        showResults(i);
+      };
     }
   }
 }
@@ -864,7 +872,6 @@ function loadColors () {
   let mid2 = e.profile.colors.mid2.value;
   if (reg.test(fg)) {
     profile.colors.fg = fg;
-    console.log('checks out!');
   }
   if (reg.test(bg)) profile.colors.bg = bg;
   if (reg.test(accent)) profile.colors.accent = accent;
@@ -879,9 +886,7 @@ function saveProfile () {
     content: JSON.parse(JSON.stringify(profile))
   };
   Neutralino.storage.putData(data, function () {
-    console.log('profile saved to storage/profile.json!');
   }, function () {
-    console.error('error saving profile!');
   });
 }
 
@@ -894,7 +899,6 @@ function checkForFile (directory, file, callback) {
       }
     }
   }, function () {
-    console.error(':3');
   });
 }
 
@@ -987,7 +991,6 @@ class Timer {
 
   // starts timer
   start () {
-    console.error('timer started!');
     const self = this;
     // if timer is already running this clears it, would just double speed otherwise
     clearInterval(this.interval);
@@ -1077,7 +1080,6 @@ class Quiz {
       this.q[i].timer = new Timer(0);
     }
     this.timer = new Timer(0, e.timerDisplay);
-    console.log(this.timer);
     this.fromQuiz = JSON.parse(JSON.stringify(activeQuestionSet));
   }
 
@@ -1094,7 +1096,6 @@ class QuestionSet {
     this.q = [];
     this.size = undefined;
     const self = this;
-    console.log(path);
     Neutralino.filesystem.readFile(path, function (data) {
       const dataObj = JSON.parse(data.content);
       self.name = dataObj.name;
@@ -1106,7 +1107,6 @@ class QuestionSet {
       self.size = self.q.length;
       if (callback !== undefined) callback(self);
     }, function () {
-      console.error('error');
     });
   }
 }
