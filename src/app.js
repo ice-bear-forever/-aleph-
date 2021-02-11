@@ -1,6 +1,6 @@
 /*
-  assets/app.js — site scripting
-  Copyright (C) 2021 bear
+  src/app.js — app setup
+  Copyright (C) 2021 John Trinh
 
   This program is free software: you can redistribute it and/or modify
   it under the terms of the GNU Affero General Public License as published
@@ -36,7 +36,7 @@ import {e} from './elements';
 // environment variables
 
 // dynamic version setting
-const alephVersion = '0.8.0';
+const alephVersion = '0.8.4';
 
 // set version numbers
 e.titleVersion.innerHTML = `v${alephVersion}`;

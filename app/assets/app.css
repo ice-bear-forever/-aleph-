@@ -1,6 +1,6 @@
 /*
-  app.css — site styling
-  Copyright (C) 2021 bear
+  src/app.css — site styling
+  Copyright (C) 2021 John Trinh
 
   This program is free software: you can redistribute it and/or modify
   it under the terms of the GNU Affero General Public License as published
@@ -700,8 +700,8 @@ body {
     display: block;
 }
 /*
-  style/print.css — printable page styling
-  Copyright (C) 2021 bear
+  src/print.css — printable page styling
+  Copyright (C) 2021 John Trinh
 
   This program is free software: you can redistribute it and/or modify
   it under the terms of the GNU Affero General Public License as published
