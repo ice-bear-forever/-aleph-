@@ -1,0 +1,16 @@
+{
+  "appname": "aleph",
+  "appport": "0",
+  "url": "/",
+  "mode": "window",
+  "window": {
+    "title": "aleph",
+    "width": "1000",
+    "height": "700",
+    "fullscreen": false,
+    "alwaysontop": false,
+    "iconfile": "logo.png",
+    "enableinspector": false,
+    "borderlesswindow": false
+  }
+}

@@ -1,0 +1,337 @@
+<!--
+  index.html — main site page
+  Copyright (C) 2021 bear
+
+  This program is free software: you can redistribute it and/or modify
+  it under the terms of the GNU Affero General Public License as published
+  by the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU Affero General Public License for more details.
+
+  You should have received a copy of the GNU Affero General Public License
+  along with this program.  If not, see <https://www.gnu.org/licenses/>.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="assets/app.css" rel="stylesheet">
+    <title>aleph</title>
+    <style>
+        @import "assets/fonts/Overpass/overpass.css";
+        @import "assets/fonts/Overpass_Mono/overpass-mono.css";
+    </style>
+</head>
+<body>
+<div id="window-box">
+    <div id="content-box">
+        <div id="header-box">
+            <div id="title-box">
+                <h1>
+                    <a class="monospace" href="#" id="title">aleph</a>
+                </h1>
+                <a class="monospace" href="https://github.com/ice-bear-forever/-aleph-" id="title-version"
+                   target="_blank">version</a>
+            </div>
+            <div id="timer-box">
+                <h2 class="monospace" id="game-timer">0:00</h2>
+                <div id="timer-toggle">
+                    <p>timer: </p>
+                    <div class="invisible-input">
+                        <input checked id="timer-toggle-on" name="timer-toggle" type="radio" value="on"/>
+                        <label class="quick-setting-option" for="timer-toggle-on">
+                            on
+                        </label>
+                    </div>
+                    <div class="invisible-input">
+                        <input id="timer-toggle-off" name="timer-toggle" type="radio" value="off"/>
+                        <label class="quick-setting-option" for="timer-toggle-off">
+                            off
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div id="resource-box">
+                <h4>
+                    <a class="monospace" href="#" id="profile-button">profile</a>
+                </h4>
+                <h4>
+                    <a class="monospace" href="#" id="help-button">help</a>
+                </h4>
+            </div>
+        </div>
+        <div class="switchable-main" id="start-box">
+            <div class="dropdown" id="question-set-dropdown-box">
+                <div class="button dropdown-button" id="question-set-dropdown-button">
+                    choose a question set!
+                </div>
+                <div class="dropdown-content" id="question-set-dropdown">
+                    <a class="dropdown-item button first" href="#">placeholder 1</a>
+                    <a class="button" href="#">placeholder 2</a>
+                    <a class="button last" href="#">placeholder 3</a>
+                </div>
+            </div>
+            <h2 id="in-progress-msg">quiz in progress...</h2>
+            <div class="button minor" id="load-backup-button">
+                backup
+            </div>
+            <div class="button" id="stop-button">
+                cancel current quiz
+            </div>
+            <div class="button inactive" id="start-button">
+                START
+            </div>
+            <div class="button" id="continue-button">
+                CONTINUE
+            </div>
+        </div>
+        <div class="switchable-main" id="question-box">
+            <h2 class="monospace" id="question">what does fox say?</h2>
+            <div class="answer-box switchable-answers" id="multiple-choice-answer-box">
+                <p class="instructions">select an answer.</p>
+                <div class="answer-list" id="multiple-choice-answer-list">
+                    <div class="invisible-input">
+                        <input id="multiple-choice-answer-1" name="multiple-choice-answers" type="radio" value="1"/>
+                        <label class="multiple-choice-answer answer button" for="multiple-choice-answer-1">
+                            FUCK YOU FUCK YOU FUCK YOU FUCK YOU FUC
+                        </label>
+                    </div>
+                    <div class="invisible-input">
+                        <input id="multiple-choice-answer-2" name="multiple-choice-answers" type="radio" value="1"/>
+                        <label class="multiple-choice-answer answer button" for="multiple-choice-answer-2">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                            enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                            nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+                            reprehenderit in voluptate velit esse cillum dolore eu fugiat
+                            nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+                            sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        </label>
+                    </div>
+                    <div class="invisible-input">
+                        <input id="multiple-choice-answer-3" name="multiple-choice-answers" type="radio" value="1"/>
+                        <label class="multiple-choice-answer answer button" for="multiple-choice-answer-3">
+                            option 3
+                        </label>
+                    </div>
+                    <div class="invisible-input">
+                        <input id="multiple-choice-answer-4" name="multiple-choice-answers" type="radio" value="1"/>
+                        <label class="multiple-choice-answer answer button" for="multiple-choice-answer-4">
+                            waaaaaaaaaaaaaaaaah *licks u*
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="answer-box switchable-answers" id="true-false-answer-box">
+                <p class="instructions">select an answer.</p>
+                <div class="answer-list" id="true-false-answer-list">
+                    <div class="invisible-input" id="true-button">
+                        <input id="true-input" name="true-false-answers" type="radio" value="true"/>
+                        <label class="true-false-answer answer button" for="true-input">
+                            true
+                        </label>
+                    </div>
+                    <div class="invisible-input" id="false-button">
+                        <input id="false-input" name="true-false-answers" type="radio" value="false"/>
+                        <label class="true-false-answer answer button" for="false-input">
+                            false
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="answer-box switchable-answers" id="short-answer-box">
+                <p class="instructions">enter your response in the box below.</p>
+                <div class="answer-list" id="short-answer-list">
+                    <label id="short-answer">
+                        <input class="monospace" id="short-answer-input" name="short-answer" type="text"/>
+                    </label>
+                </div>
+            </div>
+            <div class="answer-box switchable-answers" id="multiple-answer-answer-box">
+                <p class="instructions">select one or more answers.</p>
+                <div class="answer-list" id="multiple-answer-answer-list">
+                    <div class="invisible-input">
+                        <input id="multiple-answer-answer-1" name="multiple-answer-answers" type="checkbox" value="1"/>
+                        <label class="multiple-answer-answer answer button" for="multiple-answer-answer-1">
+                            FUCK YOU FUCK YOU FUCK YOU FUCK YOU FUC
+                        </label>
+                    </div>
+                    <div class="invisible-input">
+                        <input id="multiple-answer-answer-2" name="multiple-answer-answers" type="checkbox" value="1"/>
+                        <label class="multiple-answer-answer answer button" for="multiple-answer-answer-2">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                            enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                            nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+                            reprehenderit in voluptate velit esse cillum dolore eu fugiat
+                            nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+                            sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        </label>
+                    </div>
+                    <div class="invisible-input">
+                        <input id="multiple-answer-answer-3" name="multiple-answer-answers" type="checkbox" value="1"/>
+                        <label class="multiple-answer-answer answer button" for="multiple-answer-answer-3">
+                            option 3
+                        </label>
+                    </div>
+                    <div class="invisible-input">
+                        <input id="multiple-answer-answer-4" name="multiple-answer-answers" type="checkbox" value="1"/>
+                        <label class="multiple-answer-answer answer button" for="multiple-answer-answer-4">
+                            waaaaaaaaaaaaaaaaah *licks u*
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="button" id="back-button">back</div>
+            <div class="button" id="next-button">next</div>
+        </div>
+        <div class="switchable-main" id="results-box">
+            <h2 class="results-header" id="results-name-header">quiz results for</h2>
+            <div class="button" id="print-button">PRINT RESULT</div>
+            <h1 class="monospace" id="results-name">profile name</h1>
+            <div class="results-stat-box" id="results-started-box">
+                <h4 class="results-stat-header">started: </h4>
+                <h3 class="results-stat monospace" id="results-started">1/3/2022 1:34.1</h3>
+            </div>
+            <div class="results-stat-box" id="results-ended-box">
+                <h4 class="results-stat-header">ended: </h4>
+                <h3 class="results-stat monospace" id="results-ended">1/4/2202 1:35.2</h3>
+            </div>
+            <div class="results-stat-box" id="results-time-taken-box">
+                <h4 class="results-stat-header">time taken: </h4>
+                <h3 class="results-stat monospace" id="results-time-taken">1:34.2</h3>
+            </div>
+            <div class="results-stat-box" id="results-score-box">
+                <h4 class="results-stat-header">score: </h4>
+                <h3 class="results-stat monospace" id="results-score">5/6</h3>
+            </div>
+            <div class="results-stat-box" id="results-set-info-box">
+                <h4 class="results-stat-header">from question set: </h4>
+                <h3 class="results-stat monospace" id="results-set-info-name">sample</h3>
+                <h4 class="results-stat-header"> by </h4>
+                <h3 class="results-stat monospace" id="results-set-info-author">bear :3</h3>
+            </div>
+            <h2 class="results-header" id="results-questions-header">questions:</h2>
+            <div id="results-questions">
+                <div class="results-question-box">
+                    <h3 class="monospace">1 – what fox does say?</h3>
+                    <div class="results-stat-box">
+                        <h4 class="monospace">type:</h4>
+                        <p>multiple choice</p>
+                    </div>
+                    <div class="results-stat-box">
+                        <h4 class="monospace">available answers:</h4>
+                        <p>testing</p>
+                    </div>
+                    <div class="results-stat-box">
+                        <h4 class="monospace">given answer:</h4>
+                        <p>testing</p>
+                    </div>
+                    <div class="results-stat-box">
+                        <h4 class="monospace">correct answer:</h4>
+                        <p>testing</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="switchable-main" id="profile-box">
+            <label id="profile-name">
+                <input class="monospace" content="" id="profile-name-input" name="profile-name" type="text"
+                       value="player name"/>
+                name
+            </label>
+            <h3 id="profile-colors-header">theme</h3>
+            <label class="profile-color-box" id="profile-color-fg">
+                <input class="monospace" id="profile-color-fg-input" maxlength="7" minlength="7" name="profile-color-fg"
+                       type="text" value="#000000"/>
+                foreground
+            </label>
+            <label class="profile-color-box" id="profile-color-bg">
+                <input class="monospace" id="profile-color-bg-input" maxlength="7" minlength="7" name="profile-color-bg"
+                       type="text" value="#FFFFFF"/>
+                background
+            </label>
+            <label class="profile-color-box" id="profile-color-accent">
+                <input class="monospace" id="profile-color-accent-input" maxlength="7" minlength="7"
+                       name="profile-color-accent" type="text" value="#FF0000"/>
+                accent
+            </label>
+            <label class="profile-color-box" id="profile-color-mid1">
+                <input class="monospace" id="profile-color-mid1-input" maxlength="7" minlength="7"
+                       name="profile-color-mid1" type="text" value="#949494"/>
+                mid 1
+            </label>
+            <label class="profile-color-box" id="profile-color-mid2">
+                <input class="monospace" id="profile-color-mid2-input" maxlength="7" minlength="7"
+                       name="profile-color-mid2" type="text" value="#D6D6D6"/>
+                mid 2
+            </label>
+            <h3 id="profile-quiz-header">completed quizzes</h3>
+            <div id="profile-quiz-list">
+                <div class="profile-quiz"
+                     style="background: linear-gradient(90deg, #00ff00 calc(100% * 3 / 5), #ff0000 0, #ff0000 100%)">
+                    <p class="info monospace">2/8/2021, 10:25:07 AM</p>
+                    <p>score</p>
+                    <p class="info monospace">3/5</p>
+                    <p>from quiz</p>
+                    <p class="info monospace">sample</p>
+                </div>
+            </div>
+        </div>
+        <div class="switchable-main" id="help-box">
+            <h1>help</h1>
+            <h2>main menu</h2>
+            <p>The main menu is the first panel you see when aleph is opened. From here you can start new quizzes, load
+                backups, and continue or cancel any in-progress quizzes. It can be accessed at any time by clicking the
+                aleph logo in the top left corner of the window.</p>
+            <h4>starting quizzes</h4>
+            <p>To start a quiz, choose a question set from the dropdown menu. Once a question set is selected, press
+                start to begin a quiz.</p>
+            <h4>backups</h4>
+            <p>If a backup of an in-progress quiz is available, it can be loaded by pressing the backup option below the
+                start button.</p>
+            <h4>in-progress quizzes</h4>
+            <p>When a quiz is in progress, you can continue or cancel it from the main menu.</p>
+            <h2>quizzes</h2>
+            <p>Quizzes are started from the main menu. Every quiz consists of 5 randomly selected questions from the
+                chosen set. Options for multiple-choice and multiple-answer questions are also listed in a random
+                order.</p>
+            <h4>question types</h4>
+            <p>aleph supports four types of questions—multiple-choice, true-or-false, short-answer, and
+                multiple-answer.</p>
+            <h4>auto-saving and backups</h4>
+            <p>aleph automatically saves quiz progress when you switch questions or exit the quiz panel. If aleph is
+                exited for any reason, including by using the stop quiz button, the last saved backup can be loaded from
+                the main menu. Elapsed time, current question, and previous answers will be restored. Backups are
+                deleted when their quizzes are completed.</p>
+            <h4>results</h4>
+            <p>When you finish a quiz, aleph displays its results. To print, click the button in the top right corner of
+                the window.</p>
+            <h2>profile</h2>
+            <p>All user data is stored in the user profile, which can be viewed by clicking the respective button at the
+                top of the window. In the profile panel, you can change your user information and the app theme, as well
+                as view the results of finished quizzes.</p>
+            <h4>color theme</h4>
+            <p>All colors in aleph are fully customizable. Color values must be full-length hex triplets with preceding
+                #s (such as #F3AA57).</p>
+            <h4>completed quizzes</h4>
+            <p>All completed quizzes appear here. To view the results of a quiz, click on its list entry here.</p>
+        </div>
+        <div id="footer-box">
+            <a href="https://github.com/ice-bear-forever/-aleph-" id="footer-contribute" target="_blank">contribute on
+                github!</a>
+            <a href="https://github.com/ice-bear-forever/-aleph-/blob/master/LICENSE" id="footer-copyright"
+               target="_blank">© 2021 bear</a>
+            <a href="https://github.com/ice-bear-forever/-aleph-" id="footer-version" target="_blank">version</a>
+        </div>
+    </div>
+</div>
+<script src="/neutralino.js"></script>
+<script src="/assets/app.js"></script>
+</body>
+</html>
